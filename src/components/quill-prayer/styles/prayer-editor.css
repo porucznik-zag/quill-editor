@@ -1,0 +1,315 @@
+/* Prayer Editor Styles */
+
+.custom-ql-formats {
+  width: 100% !important;
+  border-top: 1px solid #ccc !important;
+  margin-top: 8px !important;
+  padding: 8px 0px 0px 0px !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 5px !important;
+}
+
+/* Styles for Quill editor - Prayer blocks */
+.prayer-header,
+.prayer-title,
+.prayer-quote {
+  width: fit-content !important;
+  border-radius: 5px !important;
+  display: block !important;
+  position: relative !important;
+}
+
+.prayer-header {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: rgb(46, 46, 46) !important;
+  padding: 5px 10px !important;
+  padding-right: 85px !important;
+  margin: 2.5px 0 !important;
+  font-weight: 600 !important;
+}
+
+.prayer-title {
+  width: 100% !important;
+  text-align: center !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  padding: 10px 10px !important;
+  margin: 2.5px 0 !important;
+  font-weight: 600 !important;
+  font-size: 1.2em !important;
+}
+
+.prayer-quote {
+  width: 100% !important;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1) !important;
+  padding: 10px 10px !important;
+  margin: 2.5px 0 !important;
+}
+
+/* Block labels in top-right corner */
+.prayer-header::after,
+.prayer-title::after,
+.prayer-quote::after {
+  position: absolute !important;
+  top: 5px !important;
+  right: 5px !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  font-size: 0.7em !important;
+  color: white !important;
+  padding: 2px 6px !important;
+  border-radius: 3px !important;
+  font-weight: 400 !important;
+  white-space: nowrap !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  -moz-user-select: none !important;
+}
+
+.prayer-header::after {
+  content: "Blok nagłówka" !important;
+}
+
+.prayer-title::after {
+  content: "Blok tytułu" !important;
+  font-size: 0.6em !important;
+}
+
+.prayer-quote::after {
+  content: "Blok cytatu" !important;
+}
+
+/* Toolbar styles - Custom formats */
+.ql-toolbar .custom-ql-formats button {
+  width: auto !important;
+  min-width: 25px !important;
+  height: auto !important;
+  padding: 5px 7.5px !important;
+  font-size: 0.8em !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 0.4s ease-in-out !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #333 !important;
+}
+
+.ql-toolbar .custom-ql-formats button:hover,
+.ql-toolbar .custom-ql-formats button.ql-active {
+  color: #06c !important;
+}
+
+.ql-toolbar .custom-ql-formats svg path {
+  fill: #333 !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.ql-toolbar .custom-ql-formats button:hover > svg path,
+.ql-toolbar .custom-ql-formats button.ql-active > svg path {
+  fill: #06c !important;
+}
+
+/* Toolbar styles - Dropdown pickers */
+.ql-toolbar .ql-prayer-line-select.ql-picker,
+.ql-toolbar .ql-prayer-opacity-select.ql-picker {
+  width: fit-content !important;
+  height: auto !important;
+  padding: 5px 0px !important;
+  padding-right: 5px !important;
+  user-select: none !important;
+  flex-direction: row !important;
+  font-size: 1em !important;
+  border: 1px solid #ccc !important;
+  border-radius: 5px !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.ql-toolbar .ql-prayer-line-select.ql-picker:hover,
+.ql-toolbar .ql-prayer-opacity-select.ql-picker:hover,
+.ql-toolbar .ql-prayer-line-select.ql-picker.ql-active,
+.ql-toolbar .ql-prayer-opacity-select.ql-picker.ql-active {
+  border-color: transparent !important;
+  background-color: #d1d5dc !important;
+}
+
+.ql-toolbar .ql-prayer-line-select.ql-picker:hover > .ql-picker-label svg path,
+.ql-toolbar
+  .ql-prayer-opacity-select.ql-picker:hover
+  > .ql-picker-label
+  svg
+  path,
+.ql-toolbar
+  .ql-prayer-line-select.ql-picker.ql-active
+  > .ql-picker-label
+  svg
+  path,
+.ql-toolbar
+  .ql-prayer-opacity-select.ql-picker.ql-active
+  > .ql-picker-label
+  svg
+  path {
+  fill: #06c !important;
+}
+
+.ql-toolbar .ql-prayer-line-select.ql-picker:hover > .ql-picker-label,
+.ql-toolbar .ql-prayer-opacity-select.ql-picker:hover > .ql-picker-label,
+.ql-toolbar .ql-prayer-line-select.ql-picker.ql-active > .ql-picker-label,
+.ql-toolbar .ql-prayer-opacity-select.ql-picker.ql-active > .ql-picker-label {
+  color: #06c !important;
+}
+
+/* Picker labels */
+.ql-toolbar .ql-prayer-line-select .ql-picker-label,
+.ql-toolbar .ql-prayer-opacity-select .ql-picker-label {
+  height: auto !important;
+  max-width: none !important;
+  font-size: 0.8em !important;
+  color: #333 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 7.5px !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: left !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+/* Picker SVG icons */
+.ql-toolbar .ql-prayer-line-select .ql-picker-label svg,
+.ql-toolbar .ql-prayer-opacity-select .ql-picker-label svg {
+  height: 100% !important;
+  position: unset !important;
+  margin: 0px !important;
+  width: fit-content !important;
+}
+
+/* Picker dropdown options */
+.ql-toolbar .ql-prayer-line-select .ql-picker-options,
+.ql-toolbar .ql-prayer-opacity-select .ql-picker-options {
+  background: white !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Picker dropdown items */
+.ql-toolbar .ql-prayer-line-select .ql-picker-item,
+.ql-toolbar .ql-prayer-opacity-select .ql-picker-item {
+  padding: 8px 12px !important;
+  font-size: 0.8em !important;
+  color: #333 !important;
+  cursor: pointer !important;
+}
+
+.ql-toolbar .ql-prayer-line-select .ql-picker-item:hover,
+.ql-toolbar .ql-prayer-opacity-select .ql-picker-item:hover {
+  color: #06c !important;
+}
+
+/* Prayer opacity blocks */
+.prayer-opacity {
+  opacity: 1 !important;
+}
+
+.prayer-opacity-75 {
+  color: rgba(0, 0, 0, 0.75) !important;
+  /* opacity: 0.75 !important; */
+}
+
+.prayer-opacity-50 {
+  color: rgba(0, 0, 0, 0.5) !important;
+  /* opacity: 0.5 !important; */
+}
+
+.prayer-opacity-25 {
+  color: rgba(0, 0, 0, 0.25) !important;
+  /* opacity: 0.25 !important; */
+}
+
+/* Prayer line blocks - Common styles */
+[class^="prayer-line"] {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 5px !important;
+  margin: 0px !important;
+  padding: 5px !important;
+  border-radius: 5px !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  position: relative !important;
+}
+
+[class^="prayer-line"] div:focus {
+  outline: 0.5px solid #06c !important;
+  background: rgba(0, 102, 204, 0.05) !important;
+}
+
+/* Prayer line components */
+.prayer-line-speaker {
+  flex: 0 0 auto !important;
+  width: calc(3em + 20px) !important;
+  outline: 0.5px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 5px !important;
+  padding: 5px 10px !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.prayer-line-text {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  outline: 0.5px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 5px !important;
+  padding: 5px 10px !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.prayer-line-bold .prayer-line-text {
+  font-weight: bold !important;
+  outline-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Prayer line delete button */
+.prayer-line-delete-btn-overlay {
+  position: fixed !important;
+  width: 30px !important;
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  color: white !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 10000 !important;
+  user-select: none !important;
+  opacity: 0 !important;
+  transform: scale(0.8) !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.prayer-line-delete-btn-overlay.visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.prayer-line-delete-btn-overlay svg line {
+  stroke: white !important;
+}
+
+.prayer-line-delete-btn-temp:hover,
+.prayer-line-delete-btn:hover,
+.prayer-line-delete-btn-overlay:hover {
+  background-color: #dc2626 !important;
+}
