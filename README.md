@@ -16,6 +16,9 @@ A specialized rich text editor built on top of Quill.js, designed specifically f
 - **Modular Architecture**: Clean, maintainable code structure with separated concerns
 - **TypeScript Support**: Full TypeScript implementation for type safety
 - **Responsive Design**: Works seamlessly across different screen sizes
+- **Formatting Validation**: Built-in validator checks for correct spacing and block usage, with actionable recommendations
+- **Animated Warning Icon**: Validation issues are indicated by a gently shaking warning icon (triangle with exclamation mark)
+- **Tooltip with Recommendations**: Hovering the icon shows a floating tooltip with formatting suggestions
 
 ## Installation
 
@@ -60,6 +63,10 @@ function App() {
 }
 ```
 
+**Example:**
+
+![Example of Usage](docs/example-of-usage.png)
+
 ### Custom Configuration
 
 The editor comes with pre-configured prayer blocks and handlers. You can customize the toolbar and add additional functionality:
@@ -73,6 +80,20 @@ The editor comes with pre-configured prayer blocks and handlers. You can customi
 // - prayer-line
 // - prayer-line-bold
 ```
+
+## Formatting Validation & Recommendations
+
+The editor automatically validates the structure and formatting of prayer blocks. If issues are detected (e.g., missing spacing after a prayer line), a warning icon appears in the editor:
+
+- The icon gently shakes to draw attention, but pauses when hovered.
+- Hovering the icon displays a tooltip with actionable recommendations for improving formatting.
+- Example issues detected:
+  - Missing empty line after a prayer line block
+  - Consecutive prayer lines without spacing
+
+**Example:**
+
+![Validation Tooltip Example](docs/validation-tooltip-example.png)
 
 ## Architecture
 

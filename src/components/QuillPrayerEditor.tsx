@@ -15,6 +15,7 @@ import {
   PrayerHandlers,
   PrayerKeyboard,
   PrayerToolbar,
+  PrayerValidator,
 } from "./quill-prayer/modules";
 
 // Register Prayer Quill blocks and handlers
@@ -125,10 +126,18 @@ const QuillPrayerEditor = forwardRef<QuillEditorRef, QuillEditorProps>(
         if (editorRef.current) {
           scrollHandler.addScrollListener(editorRef.current);
         }
+
+        // Initialize validator
+        const validator = PrayerValidator.create(quillRef, editorRef);
+        validator.start();
       }
 
       // Cleanup function
       return () => {
+        // Clean up validator
+        const validator = PrayerValidator.create(quillRef, editorRef);
+        validator.stop();
+
         // Clean up scroll listeners
         if (editorRef.current) {
           const scrollHandler = PrayerHandlers.createScrollHandler();
