@@ -23,8 +23,8 @@ Quill.register("formats/prayer-header", PrayerBlocks.Header, true);
 Quill.register("formats/prayer-title", PrayerBlocks.Title, true);
 Quill.register("formats/prayer-quote", PrayerBlocks.Quote, true);
 Quill.register("formats/prayer-opacity", PrayerBlocks.Opacity, true);
-Quill.register("formats/prayer-line", PrayerBlocks.Line, true);
 Quill.register("formats/prayer-line-bold", PrayerBlocks.LineBold, true);
+Quill.register("formats/prayer-line", PrayerBlocks.Line, true);
 
 interface QuillEditorProps {
   value: string;

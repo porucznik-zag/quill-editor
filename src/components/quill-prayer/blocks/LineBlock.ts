@@ -460,13 +460,16 @@ export class LineBlock extends BlockEmbed {
   }
 
   static formats(node: HTMLElement) {
+    // Return the specific format name, not just a value
     if (node.classList.contains("prayer-line-bold")) {
-      return "bold";
+      return true; // For prayer-line-bold format
     }
-    if (node.classList.contains("prayer-line")) {
-      return "normal";
-    }
-    return undefined;
+    return false;
+  }
+
+  static match(node: HTMLElement) {
+    // Only match regular prayer-line, not bold ones
+    return node.classList.contains("prayer-line") && !node.classList.contains("prayer-line-bold");
   }
 }
 LineBlock.blotName = "prayer-line";
@@ -475,6 +478,19 @@ LineBlock.tagName = "div";
 export class LineBlockBold extends LineBlock {
   static create(value: any) {
     return super.create({ ...value, type: "bold" });
+  }
+
+  static formats(node: HTMLElement) {
+    // Return true if this is a bold prayer line
+    if (node.classList.contains("prayer-line-bold")) {
+      return true;
+    }
+    return false;
+  }
+
+  static match(node: HTMLElement) {
+    // Only match prayer-line-bold
+    return node.classList.contains("prayer-line-bold");
   }
 }
 LineBlockBold.blotName = "prayer-line-bold";

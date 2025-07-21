@@ -1,1 +1,1 @@
-export { PrayerValidator } from './PrayerValidator.js';
+export { PrayerValidator } from './PrayerValidator.ts';
