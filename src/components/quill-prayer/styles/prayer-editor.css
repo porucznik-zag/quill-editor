@@ -81,6 +81,17 @@
 }
 
 /* Toolbar styles - Custom formats */
+/* Sticky toolbar for QuillPrayerEditor */
+.ql-toolbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10010 !important;
+}
+
+.ql-toolbar.sticky {
+  border-radius: 0px !important;
+}
+
 .ql-toolbar .custom-ql-formats button {
   width: auto !important;
   min-width: 25px !important;
@@ -246,7 +257,8 @@
   position: relative !important;
 }
 
-[class^="prayer-line"] div:focus {
+[class^="prayer-line"] .prayer-line-speaker:focus,
+[class^="prayer-line"] .prayer-line-text:focus {
   outline: 0.5px solid #06c !important;
   background: rgba(0, 102, 204, 0.05) !important;
 }
@@ -272,6 +284,11 @@
   white-space: normal !important;
   word-break: break-word !important;
   overflow-wrap: anywhere !important;
+}
+
+.prayer-line-bold .prayer-line-speaker {
+  font-weight: bold !important;
+  outline-color: rgba(0, 0, 0, 0.4) !important;
 }
 
 .prayer-line-bold .prayer-line-text {

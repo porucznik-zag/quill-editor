@@ -31,8 +31,18 @@ interface QuillEditorProps {
   onChange?: (value: string) => void;
 }
 
+
 export interface QuillEditorRef {
   focus: () => void;
+}
+
+function checkSticky(toolbar: HTMLDivElement) {
+  const rect = toolbar.getBoundingClientRect();
+  if (rect.top <= 0) {
+    toolbar.classList.add('sticky');
+  } else {
+    toolbar.classList.remove('sticky');
+  }
 }
 
 const QuillPrayerEditor = forwardRef<QuillEditorRef, QuillEditorProps>(
@@ -49,6 +59,7 @@ const QuillPrayerEditor = forwardRef<QuillEditorRef, QuillEditorProps>(
     }));
 
     useEffect(() => {
+      let stickyListener: (() => void) | undefined;
       if (editorRef.current && !quillRef.current) {
         // Initialize scroll handler
         const scrollHandler = PrayerHandlers.createScrollHandler();
@@ -117,9 +128,14 @@ const QuillPrayerEditor = forwardRef<QuillEditorRef, QuillEditorProps>(
         // Initialize PrayerToolbar display
         setTimeout(() => {
           PrayerToolbar.initialize(editorRef);
-
-          // Update toolbar state after initialization
           PrayerToolbar.updateState(quillRef, editorRef);
+
+          const toolbarElement = document.querySelector('.ql-toolbar') as HTMLDivElement | null;
+          if (toolbarElement) {
+            stickyListener = () => checkSticky(toolbarElement);
+            window.addEventListener('scroll', stickyListener);
+            stickyListener();
+          }
         }, 100);
 
         // Add scroll listeners
@@ -144,9 +160,16 @@ const QuillPrayerEditor = forwardRef<QuillEditorRef, QuillEditorProps>(
           scrollHandler.removeScrollListener(editorRef.current);
         }
 
+        // Clean up sticky scroll listener
+        const toolbarElement = document.querySelector('.ql-toolbar') as HTMLDivElement | null;
+        if (toolbarElement && stickyListener) {
+          window.removeEventListener('scroll', stickyListener);
+          stickyListener = undefined;
+        }
+
         // Clean up any remaining delete buttons when component unmounts
         const existingButtons = document.querySelectorAll(
-          ".prayer-line-delete-btn-overlay"
+          '.prayer-line-delete-btn-overlay'
         );
         existingButtons.forEach((btn) => btn.remove());
       };
@@ -168,6 +191,6 @@ const QuillPrayerEditor = forwardRef<QuillEditorRef, QuillEditorProps>(
   }
 );
 
-QuillPrayerEditor.displayName = "QuillEditor";
+QuillPrayerEditor.displayName = "QuillPrayerEditor";
 
 export default React.memo(QuillPrayerEditor);

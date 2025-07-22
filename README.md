@@ -11,7 +11,7 @@ A specialized rich text editor built on top of Quill.js, designed specifically f
   - Prayer Opacity: Adjustable opacity levels (25%, 50%, 75%, 100%)
   - Prayer Line: Separator lines with customizable styles (normal, bold)
 
-- **Enhanced Toolbar**: Custom toolbar with intuitive controls and SVG icons
+- **Enhanced Toolbar**: Custom sticky toolbar with intuitive controls and SVG icons
 - **Visual Labels**: CSS-based labels for better block identification
 - **Modular Architecture**: Clean, maintainable code structure with separated concerns
 - **TypeScript Support**: Full TypeScript implementation for type safety
@@ -46,23 +46,62 @@ npm run dev
 import React, { useState, useRef } from 'react';
 import QuillPrayerEditor from './components/QuillPrayerEditor';
 import type { QuillEditorRef } from './components/QuillPrayerEditor';
+### Prayer Header
+Creates a distinctive header block with special styling:
+```html
+<sapp class="prayer-header">Header Content</sapp>
+```
+
+### Prayer Title
+Adds a title block with decorative underlines:
+```html
+<sapp class="prayer-title">Title Content</sapp>
+```
+
+### Prayer Quote
+Formatted quote blocks with quotation marks:
+```html
+<sapp class="prayer-quote">Quote Content</sapp>
+```
+
+### Prayer Opacity
+Adjustable opacity levels for text:
+```html
+<sapp class="prayer-opacity prayer-opacity-75">75% opacity text</sapp>
+```
+
+### Prayer Line
+Separator lines with customizable styles:
+```html
+<sapp class="prayer-line">Normal line</sapp>
+<sapp class="prayer-line prayer-line-bold">Bold line</sapp>
+```
 
 function App() {
-  const [content, setContent] = useState("");
   const editorRef = useRef<QuillEditorRef>(null);
 
   return (
     <div>
       <QuillPrayerEditor 
         ref={editorRef} 
-        value={content} 
-        onChange={setContent} 
-      />
-    </div>
-  );
-}
-```
+## Features
 
+- **Custom Prayer Blocks**: Specialized formatting blocks for prayer texts
+  - Prayer Header: Styled header blocks with distinctive visual treatment (now rendered as `<sapp class="prayer-header">`)
+  - Prayer Title: Title blocks with decorative underlines (`<sapp class="prayer-title">`)
+  - Prayer Quote: Formatted quote blocks with quotation marks (`<sapp class="prayer-quote">`)
+  - Prayer Opacity: Adjustable opacity levels (25%, 50%, 75%, 100%) (`<sapp class="prayer-opacity prayer-opacity-75">`)
+  - Prayer Line: Separator lines with customizable styles (normal, bold) (`<sapp class="prayer-line">`, `<sapp class="prayer-line prayer-line-bold">`)
+
+- **Sticky Toolbar**: The toolbar uses CSS `position: sticky` and automatically removes border-radius when stuck to the top. The sticky state is managed dynamically in the editor for a seamless UX.
+- **Enhanced Toolbar**: Custom toolbar with intuitive controls and SVG icons
+- **Visual Labels**: CSS-based labels for better block identification
+- **Modular Architecture**: Clean, maintainable code structure with separated concerns
+- **TypeScript Support**: Full TypeScript implementation for type safety
+- **Responsive Design**: Works seamlessly across different screen sizes
+- **Formatting Validation**: Built-in validator checks for correct spacing and block usage, with actionable recommendations
+- **Animated Warning Icon**: Validation issues are indicated by a gently shaking warning icon (triangle with exclamation mark)
+- **Tooltip with Recommendations**: Hovering the icon shows a floating tooltip with formatting suggestions
 **Example:**
 
 ![Example of Usage](docs/example-of-usage.png)

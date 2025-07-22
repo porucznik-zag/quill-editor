@@ -16,5 +16,5 @@ export class PrayerTitleBlock extends Block {
 }
 
 PrayerTitleBlock.blotName = "prayer-title";
-PrayerTitleBlock.tagName = "p";
+PrayerTitleBlock.tagName = "sapp";
 PrayerTitleBlock.className = "prayer-title";

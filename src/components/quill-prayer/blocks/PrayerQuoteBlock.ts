@@ -16,5 +16,5 @@ export class PrayerQuoteBlock extends Block {
 }
 
 PrayerQuoteBlock.blotName = "prayer-quote";
-PrayerQuoteBlock.tagName = "p";
+PrayerQuoteBlock.tagName = "sapp";
 PrayerQuoteBlock.className = "prayer-quote";

@@ -16,5 +16,5 @@ export class PrayerHeaderBlock extends Block {
 }
 
 PrayerHeaderBlock.blotName = "prayer-header";
-PrayerHeaderBlock.tagName = "p";
+PrayerHeaderBlock.tagName = "sapp";
 PrayerHeaderBlock.className = "prayer-header";

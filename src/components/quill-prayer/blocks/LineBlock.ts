@@ -9,7 +9,7 @@ export class LineBlock extends BlockEmbed {
     node.contentEditable = "false"; // Make container non-editable
 
     // Speaker
-    const speaker = document.createElement("div");
+    const speaker = document.createElement("sapp");
     speaker.className = "prayer-line-speaker";
     speaker.contentEditable = "true";
     speaker.innerText = value?.speaker || "";
@@ -473,7 +473,7 @@ export class LineBlock extends BlockEmbed {
   }
 }
 LineBlock.blotName = "prayer-line";
-LineBlock.tagName = "div";
+LineBlock.tagName = "sapp";
 
 export class LineBlockBold extends LineBlock {
   static create(value: any) {
@@ -494,4 +494,4 @@ export class LineBlockBold extends LineBlock {
   }
 }
 LineBlockBold.blotName = "prayer-line-bold";
-LineBlockBold.tagName = "div";
+LineBlockBold.tagName = "sapp";

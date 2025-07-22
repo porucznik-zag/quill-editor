@@ -40,5 +40,5 @@ export class PrayerOpacityBlock extends Block {
 }
 
 PrayerOpacityBlock.blotName = "prayer-opacity";
-PrayerOpacityBlock.tagName = "p";
+PrayerOpacityBlock.tagName = "sapp";
 PrayerOpacityBlock.className = "prayer-opacity";
